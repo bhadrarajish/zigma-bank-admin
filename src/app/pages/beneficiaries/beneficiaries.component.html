@@ -1,0 +1,25 @@
+<div class="beneficiaries-page">
+  <h3>Pending Beneficiaries</h3>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="pending.length === 0 && !loading">
+    No pending beneficiary request
+  </div>
+
+  <ul *ngIf="pending.length > 0">
+    <li *ngFor="let b of pending; index as i">
+      <div>
+        <strong>{{ b.nickName }}</strong> — {{ b.accountNumber }} — {{ b.bankName }} — IFSC: {{ b.iFSC }}
+      </div>
+      <div>
+        <button (click)="approve(b.beneficiaryId, i)">Approve</button>
+        <button (click)="reject(b.beneficiaryId, i)">Reject</button>
+      </div>
+    </li>
+  </ul>
+
+  <div>
+    <button (click)="goBack()">Go to Dashboard</button>
+  </div>
+</div>

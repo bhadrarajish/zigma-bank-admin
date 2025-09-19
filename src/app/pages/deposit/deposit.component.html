@@ -1,0 +1,23 @@
+<div class="deposit-page">
+  <h3>Deposit</h3>
+
+  <div>
+    <label>CustomerId</label>
+    <input type="number" [(ngModel)]="customerId">
+    <button (click)="fetchBalance()">Enter</button>
+  </div>
+
+  <div *ngIf="balance !== null">
+    <p>Current balance: {{ balance }}</p>
+    <label>Amount to deposit</label>
+    <input type="number" [(ngModel)]="amountToDeposit">
+    <button (click)="deposit()">Deposit</button>
+  </div>
+
+  <div *ngIf="message" class="success">{{ message }}</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div>
+    <button (click)="goBack()">Go to Dashboard</button>
+  </div>
+</div>

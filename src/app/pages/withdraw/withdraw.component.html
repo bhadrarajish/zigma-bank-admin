@@ -1,0 +1,23 @@
+<div class="withdraw-page">
+  <h3>Withdraw</h3>
+
+  <div>
+    <label>CustomerId</label>
+    <input type="number" [(ngModel)]="customerId">
+    <button (click)="fetchBalance()">Enter</button>
+  </div>
+
+  <div *ngIf="balance !== null">
+    <p>Current balance: {{ balance }}</p>
+    <label>Amount to withdraw</label>
+    <input type="number" [(ngModel)]="amountToWithdraw">
+    <button (click)="withdraw()">Withdraw</button>
+  </div>
+
+  <div *ngIf="message" class="success">{{ message }}</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div>
+    <button (click)="goBack()">Go to Dashboard</button>
+  </div>
+</div>
